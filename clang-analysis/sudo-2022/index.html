@@ -1,0 +1,629 @@
+<html>
+<head>
+<title>sudo-1.9.10 - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>sudo-1.9.10 - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>xfear@xfear</td></tr>
+<tr><th>Working Directory:</th><td>/home/xfear/Desktop/TFG/old-source-code/pacman-asp/sudo/src/sudo-1.9.10</td></tr>
+<tr><th>Command Line:</th><td>make</td></tr>
+<tr><th>Clang Version:</th><td>clang version 13.0.1
+</td></tr>
+<tr><th>Date:</th><td>Tue Jun 28 21:13:13 2022</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">177</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Assigned value is garbage or undefined</td><td class="Q">48</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_assigned_value_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of undefined pointer value</td><td class="Q">22</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_undefined_pointer_value');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Result of operation is garbage or undefined</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_result_of_operation_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Uninitialized argument value</td><td class="Q">98</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_uninitialized_argument_value');" checked/></center></td></tr>
+<tr><th>Unused code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">5</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_assignment');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>lib/protobuf-c/protobuf-c.c</td><td class="DESC">protobuf_c_buffer_simple_append</td><td class="Q">215</td><td class="Q">33</td><td><a href="report-f3dc92.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f3dc92.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1789</td><td class="Q">24</td><td><a href="report-0186cd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0186cd.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3080</td><td class="Q">24</td><td><a href="report-0ded57.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0ded57.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2336</td><td class="Q">24</td><td><a href="report-148dea.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-148dea.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2257</td><td class="Q">24</td><td><a href="report-1a9bdc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1a9bdc.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2223</td><td class="Q">24</td><td><a href="report-20d066.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-20d066.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2336</td><td class="Q">24</td><td><a href="report-2805bb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2805bb.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1936</td><td class="Q">24</td><td><a href="report-325162.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-325162.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1797</td><td class="Q">24</td><td><a href="report-32c5e7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-32c5e7.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2328</td><td class="Q">24</td><td><a href="report-352f16.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-352f16.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2556</td><td class="Q">24</td><td><a href="report-3d316d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3d316d.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2556</td><td class="Q">24</td><td><a href="report-3dad37.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3dad37.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2328</td><td class="Q">24</td><td><a href="report-3f52c6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3f52c6.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1945</td><td class="Q">24</td><td><a href="report-47fd64.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-47fd64.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1945</td><td class="Q">24</td><td><a href="report-4f86f2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4f86f2.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2983</td><td class="Q">24</td><td><a href="report-56e92b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-56e92b.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3080</td><td class="Q">24</td><td><a href="report-5960a3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5960a3.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2257</td><td class="Q">24</td><td><a href="report-5aea1c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5aea1c.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1908</td><td class="Q">24</td><td><a href="report-5ed13d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5ed13d.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2312</td><td class="Q">24</td><td><a href="report-62a963.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-62a963.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2352</td><td class="Q">24</td><td><a href="report-6686e0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6686e0.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2304</td><td class="Q">24</td><td><a href="report-6fe63b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6fe63b.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2223</td><td class="Q">24</td><td><a href="report-723d1e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-723d1e.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2344</td><td class="Q">24</td><td><a href="report-7c19ac.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7c19ac.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2368</td><td class="Q">24</td><td><a href="report-83f5a5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-83f5a5.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2248</td><td class="Q">24</td><td><a href="report-84ada5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-84ada5.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2248</td><td class="Q">24</td><td><a href="report-893380.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-893380.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3071</td><td class="Q">24</td><td><a href="report-95ec92.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-95ec92.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2320</td><td class="Q">24</td><td><a href="report-9bd75e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9bd75e.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2352</td><td class="Q">24</td><td><a href="report-a0e594.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a0e594.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1806</td><td class="Q">24</td><td><a href="report-a1e858.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a1e858.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2546</td><td class="Q">24</td><td><a href="report-a5948c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a5948c.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1780</td><td class="Q">24</td><td><a href="report-ac9f14.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ac9f14.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2983</td><td class="Q">24</td><td><a href="report-acbb3c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-acbb3c.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2974</td><td class="Q">24</td><td><a href="report-b00f12.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b00f12.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3071</td><td class="Q">24</td><td><a href="report-bb54ba.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bb54ba.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1936</td><td class="Q">24</td><td><a href="report-bb6a3e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bb6a3e.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1789</td><td class="Q">24</td><td><a href="report-c0edae.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c0edae.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2344</td><td class="Q">24</td><td><a href="report-c1ab8d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c1ab8d.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1908</td><td class="Q">24</td><td><a href="report-c74b74.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c74b74.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1806</td><td class="Q">24</td><td><a href="report-d37139.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d37139.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1797</td><td class="Q">24</td><td><a href="report-e70768.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e70768.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2304</td><td class="Q">24</td><td><a href="report-e72da1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e72da1.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2320</td><td class="Q">24</td><td><a href="report-e94751.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e94751.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2312</td><td class="Q">24</td><td><a href="report-ebf889.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ebf889.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2546</td><td class="Q">24</td><td><a href="report-f51eac.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f51eac.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2368</td><td class="Q">24</td><td><a href="report-fca33f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fca33f.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1780</td><td class="Q">24</td><td><a href="report-fcd538.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fcd538.html" -->
+</tr>
+<tr class="bt_logic_error_assigned_value_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Assigned value is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2974</td><td class="Q">24</td><td><a href="report-fd28f5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fd28f5.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/cvtsudoers_csv.c</td><td class="DESC">print_cmndspec_csv</td><td class="Q">544</td><td class="Q">1</td><td><a href="report-795aed.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-795aed.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/gram.c</td><td class="DESC">yydestruct</td><td class="Q">1371</td><td class="Q">1</td><td><a href="report-79f5cb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-79f5cb.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1566</td><td class="Q">1</td><td><a href="report-94a130.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-94a130.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/gram.c</td><td class="DESC">yydestruct</td><td class="Q">1371</td><td class="Q">1</td><td><a href="report-9f4805.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9f4805.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1566</td><td class="Q">1</td><td><a href="report-bbda4e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bbda4e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2965</td><td class="Q">35</td><td><a href="report-00742f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-00742f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2214</td><td class="Q">35</td><td><a href="report-03a23e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-03a23e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2024</td><td class="Q">24</td><td><a href="report-1d2941.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1d2941.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2214</td><td class="Q">35</td><td><a href="report-1e57e5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1e57e5.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2876</td><td class="Q">35</td><td><a href="report-325457.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-325457.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2285</td><td class="Q">24</td><td><a href="report-32ca2a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-32ca2a.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2909</td><td class="Q">35</td><td><a href="report-334125.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-334125.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1815</td><td class="Q">35</td><td><a href="report-36cc5d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-36cc5d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3062</td><td class="Q">35</td><td><a href="report-7313e5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7313e5.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2232</td><td class="Q">24</td><td><a href="report-837143.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-837143.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2266</td><td class="Q">24</td><td><a href="report-a4fd10.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a4fd10.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1898</td><td class="Q">35</td><td><a href="report-abed0f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-abed0f.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3062</td><td class="Q">35</td><td><a href="report-b1b7f2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b1b7f2.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2909</td><td class="Q">35</td><td><a href="report-b29231.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b29231.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1815</td><td class="Q">35</td><td><a href="report-c609b4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c609b4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2285</td><td class="Q">24</td><td><a href="report-c933b7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c933b7.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2024</td><td class="Q">24</td><td><a href="report-e9dd63.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e9dd63.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1898</td><td class="Q">35</td><td><a href="report-e9fe4c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e9fe4c.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2232</td><td class="Q">24</td><td><a href="report-ea7fe4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ea7fe4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2965</td><td class="Q">35</td><td><a href="report-f10add.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f10add.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2266</td><td class="Q">24</td><td><a href="report-f3cc42.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f3cc42.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_undefined_pointer_value"><td class="DESC">Logic error</td><td class="DESC">Dereference of undefined pointer value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2876</td><td class="Q">35</td><td><a href="report-f99b60.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f99b60.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2094</td><td class="Q">26</td><td><a href="report-274162.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-274162.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>logsrvd/logsrvd.c</td><td class="DESC">new_connection</td><td class="Q">1374</td><td class="Q">10</td><td><a href="report-8c2c79.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8c2c79.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2094</td><td class="Q">26</td><td><a href="report-c1f8ea.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c1f8ea.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3033</td><td class="Q">24</td><td><a href="report-03b1d8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-03b1d8.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1744</td><td class="Q">24</td><td><a href="report-045b58.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-045b58.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1824</td><td class="Q">24</td><td><a href="report-05e8bb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-05e8bb.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2419</td><td class="Q">26</td><td><a href="report-0c301e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0c301e.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2812</td><td class="Q">24</td><td><a href="report-0db914.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0db914.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1954</td><td class="Q">24</td><td><a href="report-11ffe0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-11ffe0.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1995</td><td class="Q">24</td><td><a href="report-12f643.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-12f643.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2157</td><td class="Q">24</td><td><a href="report-1460fa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1460fa.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3033</td><td class="Q">24</td><td><a href="report-14c89e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-14c89e.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1897</td><td class="Q">24</td><td><a href="report-1d8f54.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1d8f54.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3061</td><td class="Q">24</td><td><a href="report-1dff71.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1dff71.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1814</td><td class="Q">24</td><td><a href="report-1ea164.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1ea164.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3116</td><td class="Q">24</td><td><a href="report-26a910.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-26a910.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1824</td><td class="Q">24</td><td><a href="report-27405e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-27405e.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1852</td><td class="Q">24</td><td><a href="report-27f004.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-27f004.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2185</td><td class="Q">24</td><td><a href="report-2891c2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2891c2.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2171</td><td class="Q">24</td><td><a href="report-28e69e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-28e69e.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2527</td><td class="Q">24</td><td><a href="report-2fea5c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2fea5c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2950</td><td class="Q">24</td><td><a href="report-30ccb2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-30ccb2.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1735</td><td class="Q">24</td><td><a href="report-3367b6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3367b6.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1762</td><td class="Q">24</td><td><a href="report-36e4a8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-36e4a8.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2199</td><td class="Q">24</td><td><a href="report-3d0574.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3d0574.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2403</td><td class="Q">26</td><td><a href="report-3ea5db.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3ea5db.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2875</td><td class="Q">24</td><td><a href="report-3fba2c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3fba2c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2185</td><td class="Q">24</td><td><a href="report-4014d5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4014d5.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2964</td><td class="Q">24</td><td><a href="report-40e97c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-40e97c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2238</td><td class="Q">36</td><td><a href="report-4704d7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4704d7.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2403</td><td class="Q">26</td><td><a href="report-47e99a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-47e99a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2894</td><td class="Q">24</td><td><a href="report-5173dc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5173dc.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2828</td><td class="Q">24</td><td><a href="report-551967.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-551967.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1735</td><td class="Q">24</td><td><a href="report-5655b1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5655b1.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2592</td><td class="Q">24</td><td><a href="report-581326.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-581326.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2238</td><td class="Q">36</td><td><a href="report-58f3f8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-58f3f8.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1838</td><td class="Q">24</td><td><a href="report-5a2518.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5a2518.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2927</td><td class="Q">24</td><td><a href="report-5b4bd1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5b4bd1.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2861</td><td class="Q">24</td><td><a href="report-62ef14.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-62ef14.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3019</td><td class="Q">24</td><td><a href="report-6b2449.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6b2449.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1678</td><td class="Q">24</td><td><a href="report-6d348a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6d348a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2578</td><td class="Q">24</td><td><a href="report-717214.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-717214.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2009</td><td class="Q">24</td><td><a href="report-730c46.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-730c46.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2213</td><td class="Q">24</td><td><a href="report-7356b3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7356b3.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1692</td><td class="Q">24</td><td><a href="report-7807a7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7807a7.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2592</td><td class="Q">24</td><td><a href="report-7dcc79.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7dcc79.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1882</td><td class="Q">24</td><td><a href="report-7ef88a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7ef88a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1882</td><td class="Q">24</td><td><a href="report-80e4c3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-80e4c3.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2950</td><td class="Q">24</td><td><a href="report-813d58.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-813d58.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1771</td><td class="Q">24</td><td><a href="report-82089a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-82089a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1995</td><td class="Q">24</td><td><a href="report-8441fe.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8441fe.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2157</td><td class="Q">24</td><td><a href="report-872044.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-872044.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2828</td><td class="Q">24</td><td><a href="report-886269.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-886269.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3047</td><td class="Q">24</td><td><a href="report-88ba0b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-88ba0b.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3089</td><td class="Q">24</td><td><a href="report-89c085.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-89c085.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1753</td><td class="Q">24</td><td><a href="report-8d2cb4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-8d2cb4.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1867</td><td class="Q">24</td><td><a href="report-912329.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-912329.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1981</td><td class="Q">24</td><td><a href="report-977d2f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-977d2f.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3116</td><td class="Q">24</td><td><a href="report-992999.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-992999.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2564</td><td class="Q">24</td><td><a href="report-9e6923.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9e6923.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2875</td><td class="Q">24</td><td><a href="report-9f62cc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9f62cc.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1771</td><td class="Q">24</td><td><a href="report-a04e63.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a04e63.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2908</td><td class="Q">24</td><td><a href="report-a4bbd1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a4bbd1.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2992</td><td class="Q">24</td><td><a href="report-aacd72.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-aacd72.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2213</td><td class="Q">24</td><td><a href="report-abbfc1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-abbfc1.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2199</td><td class="Q">24</td><td><a href="report-abe794.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-abe794.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2861</td><td class="Q">24</td><td><a href="report-af708a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-af708a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1753</td><td class="Q">24</td><td><a href="report-b38e86.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b38e86.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2894</td><td class="Q">24</td><td><a href="report-b546e6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b546e6.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2812</td><td class="Q">24</td><td><a href="report-b6ec58.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b6ec58.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1678</td><td class="Q">24</td><td><a href="report-ba14a4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ba14a4.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3089</td><td class="Q">24</td><td><a href="report-bdf770.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bdf770.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2436</td><td class="Q">26</td><td><a href="report-be0598.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-be0598.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2419</td><td class="Q">26</td><td><a href="report-bf04ce.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bf04ce.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2927</td><td class="Q">24</td><td><a href="report-c61713.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c61713.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1744</td><td class="Q">24</td><td><a href="report-c61a05.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c61a05.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2908</td><td class="Q">24</td><td><a href="report-c6428a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c6428a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2564</td><td class="Q">24</td><td><a href="report-c69f6a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c69f6a.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2527</td><td class="Q">24</td><td><a href="report-c85ade.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c85ade.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1897</td><td class="Q">24</td><td><a href="report-ca20a7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ca20a7.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1814</td><td class="Q">24</td><td><a href="report-cd90c0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cd90c0.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2964</td><td class="Q">24</td><td><a href="report-d03441.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d03441.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3019</td><td class="Q">24</td><td><a href="report-d0804c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d0804c.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2578</td><td class="Q">24</td><td><a href="report-d18d61.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d18d61.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1692</td><td class="Q">24</td><td><a href="report-d846fb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d846fb.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1664</td><td class="Q">24</td><td><a href="report-dd4e27.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-dd4e27.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1954</td><td class="Q">24</td><td><a href="report-ddccb0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ddccb0.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1762</td><td class="Q">24</td><td><a href="report-de302b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-de302b.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2009</td><td class="Q">24</td><td><a href="report-dff392.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-dff392.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1664</td><td class="Q">24</td><td><a href="report-e035ee.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e035ee.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1981</td><td class="Q">24</td><td><a href="report-e3eb42.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e3eb42.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2436</td><td class="Q">26</td><td><a href="report-e4b0d5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e4b0d5.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2992</td><td class="Q">24</td><td><a href="report-e7ca38.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e7ca38.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3047</td><td class="Q">24</td><td><a href="report-e98f89.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e98f89.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1867</td><td class="Q">24</td><td><a href="report-ecc8c8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ecc8c8.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1852</td><td class="Q">24</td><td><a href="report-eeb5fe.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-eeb5fe.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1923</td><td class="Q">27</td><td><a href="report-f05247.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f05247.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1923</td><td class="Q">27</td><td><a href="report-f29ba5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f29ba5.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2171</td><td class="Q">24</td><td><a href="report-f56eba.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f56eba.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1838</td><td class="Q">24</td><td><a href="report-f80bde.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f80bde.html" -->
+</tr>
+<tr class="bt_logic_error_uninitialized_argument_value"><td class="DESC">Logic error</td><td class="DESC">Uninitialized argument value</td><td>plugins/sudoers/gram.c</td><td class="DESC">sudoersparse</td><td class="Q">3061</td><td class="Q">24</td><td><a href="report-fa7a5a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fa7a5a.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

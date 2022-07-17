@@ -1,0 +1,387 @@
+<html>
+<head>
+<title>sudo-1.8.1 - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>sudo-1.8.1 - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>xfear@xfear</td></tr>
+<tr><th>Working Directory:</th><td>/home/xfear/Desktop/TFG/old-source-code/pacman-asp/sudo/sudo-1.8.1</td></tr>
+<tr><th>Command Line:</th><td>make</td></tr>
+<tr><th>Clang Version:</th><td>clang version 13.0.1
+</td></tr>
+<tr><th>Date:</th><td>Tue Jun 28 21:08:49 2022</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">94</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">7</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Branch condition evaluates to a garbage value</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_branch_condition_evaluates_to_a_garbage_value');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">20</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Result of operation is garbage or undefined</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_result_of_operation_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Unix API</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_unix_api');" checked/></center></td></tr>
+<tr><th>Memory error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Double free</td><td class="Q">6</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_double_free');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Memory leak</td><td class="Q">9</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_memory_leak');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Use of zero allocated</td><td class="Q">18</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_use_of_zero_allocated');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Use-after-free</td><td class="Q">2</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_use-after-free');" checked/></center></td></tr>
+<tr><th>Unused code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead assignment</td><td class="Q">12</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_assignment');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dead increment</td><td class="Q">1</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_increment');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Dead nested assignment</td><td class="Q">12</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_nested_assignment');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3591</td><td class="Q">25</td><td><a href="report-030b7c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-030b7c.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>src/utmp.c</td><td class="DESC">utmp_setid</td><td class="Q">101</td><td class="Q">16</td><td><a href="report-356d75.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-356d75.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3582</td><td class="Q">36</td><td><a href="report-5388bc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5388bc.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3582</td><td class="Q">36</td><td><a href="report-7b3399.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7b3399.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3591</td><td class="Q">25</td><td><a href="report-d24760.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d24760.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/set_perms.c</td><td class="DESC">set_perms</td><td class="Q">124</td><td class="Q">7</td><td><a href="report-e5bb96.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e5bb96.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>plugins/sudoers/set_perms.c</td><td class="DESC">set_perms</td><td class="Q">124</td><td class="Q">7</td><td><a href="report-ecb760.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ecb760.html" -->
+</tr>
+<tr class="bt_logic_error_branch_condition_evaluates_to_a_garbage_value"><td class="DESC">Logic error</td><td class="DESC">Branch condition evaluates to a garbage value</td><td>plugins/sudoers/iolog.c</td><td class="DESC">sudoers_io_open</td><td class="Q">545</td><td class="Q">10</td><td><a href="report-0630cd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0630cd.html" -->
+</tr>
+<tr class="bt_logic_error_branch_condition_evaluates_to_a_garbage_value"><td class="DESC">Logic error</td><td class="DESC">Branch condition evaluates to a garbage value</td><td>plugins/sudoers/iolog.c</td><td class="DESC">sudoers_io_open</td><td class="Q">545</td><td class="Q">10</td><td><a href="report-657092.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-657092.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">529</td><td class="Q">1</td><td><a href="report-0e8a58.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0e8a58.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/group_plugin.c</td><td class="DESC">group_plugin_load</td><td class="Q">80</td><td class="Q">1</td><td><a href="report-1a373b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1a373b.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">514</td><td class="Q">1</td><td><a href="report-3bd427.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3bd427.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/group_plugin.c</td><td class="DESC">group_plugin_load</td><td class="Q">80</td><td class="Q">1</td><td><a href="report-6ba401.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6ba401.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/check.c</td><td class="DESC">remove_timestamp</td><td class="Q">652</td><td class="Q">1</td><td><a href="report-98d626.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-98d626.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">529</td><td class="Q">1</td><td><a href="report-a4d99d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a4d99d.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">519</td><td class="Q">1</td><td><a href="report-a5e8ae.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a5e8ae.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">514</td><td class="Q">1</td><td><a href="report-a7b08e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a7b08e.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/check.c</td><td class="DESC">remove_timestamp</td><td class="Q">652</td><td class="Q">1</td><td><a href="report-ac0bfa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ac0bfa.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">519</td><td class="Q">1</td><td><a href="report-c9e955.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c9e955.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">524</td><td class="Q">1</td><td><a href="report-cddd42.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cddd42.html" -->
+</tr>
+<tr class="bt_unused_code_dead_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead assignment</td><td>plugins/sudoers/parse.c</td><td class="DESC">display_bound_defaults</td><td class="Q">524</td><td class="Q">1</td><td><a href="report-d001c7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-d001c7.html" -->
+</tr>
+<tr class="bt_unused_code_dead_increment"><td class="DESC">Unused code</td><td class="DESC">Dead increment</td><td>plugins/sudoers/visudo.c</td><td class="DESC">main</td><td class="Q">193</td><td class="Q">1</td><td><a href="report-845802.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-845802.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/pwutil.c</td><td class="DESC">make_pwitem</td><td class="Q">147</td><td class="Q">1</td><td><a href="report-2585e1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2585e1.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/pwutil.c</td><td class="DESC">make_pwitem</td><td class="Q">147</td><td class="Q">1</td><td><a href="report-41169b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-41169b.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/logging.c</td><td class="DESC">send_mail</td><td class="Q">456</td><td class="Q">1</td><td><a href="report-59929f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-59929f.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/check.c</td><td class="DESC">lecture</td><td class="Q">193</td><td class="Q">1</td><td><a href="report-60bf3c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-60bf3c.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/logging.c</td><td class="DESC">send_mail</td><td class="Q">456</td><td class="Q">1</td><td><a href="report-a4738e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a4738e.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/boottime.c</td><td class="DESC">get_boottime</td><td class="Q">74</td><td class="Q">1</td><td><a href="report-a8f2f9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a8f2f9.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>src/net_ifs.c</td><td class="DESC">get_net_ifs</td><td class="Q">139</td><td class="Q">1</td><td><a href="report-aa51f8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-aa51f8.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/boottime.c</td><td class="DESC">get_boottime</td><td class="Q">74</td><td class="Q">1</td><td><a href="report-ae060b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ae060b.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/pwutil.c</td><td class="DESC">make_pwitem</td><td class="Q">147</td><td class="Q">1</td><td><a href="report-b5f9a0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b5f9a0.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>src/net_ifs.c</td><td class="DESC">get_net_ifs</td><td class="Q">139</td><td class="Q">1</td><td><a href="report-b9c357.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b9c357.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/pwutil.c</td><td class="DESC">make_pwitem</td><td class="Q">147</td><td class="Q">1</td><td><a href="report-bccb8b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bccb8b.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>plugins/sudoers/check.c</td><td class="DESC">lecture</td><td class="Q">193</td><td class="Q">1</td><td><a href="report-f41e17.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f41e17.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1560</td><td class="Q">30</td><td><a href="report-22ced0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-22ced0.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1256</td><td class="Q">30</td><td><a href="report-23cb4e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-23cb4e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1553</td><td class="Q">30</td><td><a href="report-363b6a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-363b6a.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/sudoers.c</td><td class="DESC">sudoers_policy_main</td><td class="Q">403</td><td class="Q">25</td><td><a href="report-568f4d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-568f4d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/sudoers.c</td><td class="DESC">sudoers_policy_main</td><td class="Q">403</td><td class="Q">25</td><td><a href="report-67275b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-67275b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1502</td><td class="Q">30</td><td><a href="report-7320e1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7320e1.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3587</td><td class="Q">33</td><td><a href="report-764e86.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-764e86.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1152</td><td class="Q">30</td><td><a href="report-7786cf.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7786cf.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1263</td><td class="Q">30</td><td><a href="report-91d0f7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-91d0f7.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/toke.c</td><td class="DESC">parse_include</td><td class="Q">3587</td><td class="Q">33</td><td><a href="report-b5eaeb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b5eaeb.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1159</td><td class="Q">30</td><td><a href="report-b68070.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b68070.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1263</td><td class="Q">30</td><td><a href="report-b85180.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b85180.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1509</td><td class="Q">30</td><td><a href="report-bcc562.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bcc562.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1509</td><td class="Q">30</td><td><a href="report-c404ad.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c404ad.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1560</td><td class="Q">30</td><td><a href="report-c42e3b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c42e3b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1553</td><td class="Q">30</td><td><a href="report-e41f08.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e41f08.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1256</td><td class="Q">30</td><td><a href="report-e82f9c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e82f9c.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1152</td><td class="Q">30</td><td><a href="report-eba968.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-eba968.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1159</td><td class="Q">30</td><td><a href="report-ef1b73.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ef1b73.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1502</td><td class="Q">30</td><td><a href="report-f188d9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f188d9.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/gram.c</td><td class="DESC">yygrowstack</td><td class="Q">857</td><td class="Q">29</td><td><a href="report-026413.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-026413.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yygrowstack</td><td class="Q">1078</td><td class="Q">25</td><td><a href="report-525455.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-525455.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/gram.c</td><td class="DESC">yygrowstack</td><td class="Q">859</td><td class="Q">25</td><td><a href="report-65f565.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-65f565.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/gram.c</td><td class="DESC">yygrowstack</td><td class="Q">859</td><td class="Q">25</td><td><a href="report-c0bbe5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c0bbe5.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/gram.c</td><td class="DESC">yygrowstack</td><td class="Q">857</td><td class="Q">29</td><td><a href="report-ec38ab.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ec38ab.html" -->
+</tr>
+<tr class="bt_memory_error_double_free"><td class="DESC">Memory error</td><td class="DESC">Double free</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yygrowstack</td><td class="Q">1076</td><td class="Q">42</td><td><a href="report-f859fd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f859fd.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sample/sample_plugin.c</td><td class="DESC">policy_check</td><td class="Q">367</td><td class="Q">32</td><td><a href="report-10db1c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-10db1c.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sudoers/toke.c</td><td class="DESC">yylex</td><td class="Q">1976</td><td class="Q">31</td><td><a href="report-33c155.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-33c155.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sudoers/toke.c</td><td class="DESC">yylex</td><td class="Q">1953</td><td class="Q">32</td><td><a href="report-44b4cc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-44b4cc.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sample/sample_plugin.c</td><td class="DESC">policy_check</td><td class="Q">377</td><td class="Q">31</td><td><a href="report-60ee3e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-60ee3e.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sudoers/toke.c</td><td class="DESC">yylex</td><td class="Q">1953</td><td class="Q">32</td><td><a href="report-ae94c8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ae94c8.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sudoers/toke.c</td><td class="DESC">yylex</td><td class="Q">1976</td><td class="Q">31</td><td><a href="report-af6cf1.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-af6cf1.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sample/sample_plugin.c</td><td class="DESC">find_editor</td><td class="Q">311</td><td class="Q">20</td><td><a href="report-b2d557.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b2d557.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sample/sample_plugin.c</td><td class="DESC">find_editor</td><td class="Q">315</td><td class="Q">41</td><td><a href="report-c7c7c5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c7c7c5.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>plugins/sample/sample_plugin.c</td><td class="DESC">find_editor</td><td class="Q">315</td><td class="Q">23</td><td><a href="report-dceca6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-dceca6.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>plugins/sudoers/getdate.c</td><td class="DESC">LookupWord</td><td class="Q">815</td><td class="Q">43</td><td><a href="report-26ac2e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-26ac2e.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>plugins/sudoers/getdate.c</td><td class="DESC">LookupWord</td><td class="Q">798</td><td class="Q">40</td><td><a href="report-542970.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-542970.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>plugins/sudoers/getdate.c</td><td class="DESC">LookupWord</td><td class="Q">761</td><td class="Q">35</td><td><a href="report-61d57a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-61d57a.html" -->
+</tr>
+<tr class="bt_logic_error_unix_api"><td class="DESC">Logic error</td><td class="DESC">Unix API</td><td>plugins/sudoers/toke_util.c</td><td class="DESC">fill_args</td><td class="Q">212</td><td class="Q">8</td><td><a href="report-0e3798.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0e3798.html" -->
+</tr>
+<tr class="bt_logic_error_unix_api"><td class="DESC">Logic error</td><td class="DESC">Unix API</td><td>plugins/sudoers/toke_util.c</td><td class="DESC">fill_args</td><td class="Q">212</td><td class="Q">8</td><td><a href="report-c72e0c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c72e0c.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1629</td><td class="Q">40</td><td><a href="report-0fd98a.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0fd98a.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">931</td><td class="Q">32</td><td><a href="report-1211ac.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1211ac.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1541</td><td class="Q">29</td><td><a href="report-1cb600.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1cb600.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1629</td><td class="Q">40</td><td><a href="report-1d43e3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1d43e3.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1150</td><td class="Q">60</td><td><a href="report-4626fa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4626fa.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">972</td><td class="Q">43</td><td><a href="report-4a9bfa.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4a9bfa.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1190</td><td class="Q">68</td><td><a href="report-6100e2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6100e2.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">972</td><td class="Q">43</td><td><a href="report-889c13.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-889c13.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">930</td><td class="Q">32</td><td><a href="report-88d826.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-88d826.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">930</td><td class="Q">32</td><td><a href="report-a9508d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a9508d.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1628</td><td class="Q">40</td><td><a href="report-bf300c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bf300c.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">1628</td><td class="Q">40</td><td><a href="report-c62a61.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c62a61.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">931</td><td class="Q">32</td><td><a href="report-c8912d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c8912d.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1573</td><td class="Q">57</td><td><a href="report-cdb37c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cdb37c.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1149</td><td class="Q">45</td><td><a href="report-db7a0e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-db7a0e.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">971</td><td class="Q">43</td><td><a href="report-df7da7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-df7da7.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/gram.c</td><td class="DESC">yyparse</td><td class="Q">971</td><td class="Q">43</td><td><a href="report-f960ad.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f960ad.html" -->
+</tr>
+<tr class="bt_memory_error_use_of_zero_allocated"><td class="DESC">Memory error</td><td class="DESC">Use of zero allocated</td><td>plugins/sudoers/getdate.c</td><td class="DESC">yyparse</td><td class="Q">1191</td><td class="Q">68</td><td><a href="report-fda479.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fda479.html" -->
+</tr>
+<tr class="bt_memory_error_use-after-free"><td class="DESC">Memory error</td><td class="DESC">Use-after-free</td><td>plugins/sudoers/toke.c</td><td class="DESC">switch_dir</td><td class="Q">3417</td><td class="Q">49</td><td><a href="report-6fc153.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-6fc153.html" -->
+</tr>
+<tr class="bt_memory_error_use-after-free"><td class="DESC">Memory error</td><td class="DESC">Use-after-free</td><td>plugins/sudoers/toke.c</td><td class="DESC">switch_dir</td><td class="Q">3417</td><td class="Q">49</td><td><a href="report-bc8391.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bc8391.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>

@@ -1,0 +1,281 @@
+<html>
+<head>
+<title>sudo-1.8.19 - scan-build results</title>
+<link type="text/css" rel="stylesheet" href="scanview.css"/>
+<script src="sorttable.js"></script>
+<script language='javascript' type="text/javascript">
+function SetDisplay(RowClass, DisplayVal)
+{
+  var Rows = document.getElementsByTagName("tr");
+  for ( var i = 0 ; i < Rows.length; ++i ) {
+    if (Rows[i].className == RowClass) {
+      Rows[i].style.display = DisplayVal;
+    }
+  }
+}
+
+function CopyCheckedStateToCheckButtons(SummaryCheckButton) {
+  var Inputs = document.getElementsByTagName("input");
+  for ( var i = 0 ; i < Inputs.length; ++i ) {
+    if (Inputs[i].type == "checkbox") {
+      if(Inputs[i] != SummaryCheckButton) {
+        Inputs[i].checked = SummaryCheckButton.checked;
+        Inputs[i].onclick();
+      }
+    }
+  }
+}
+
+function returnObjById( id ) {
+    if (document.getElementById)
+        var returnVar = document.getElementById(id);
+    else if (document.all)
+        var returnVar = document.all[id];
+    else if (document.layers)
+        var returnVar = document.layers[id];
+    return returnVar;
+}
+
+var NumUnchecked = 0;
+
+function ToggleDisplay(CheckButton, ClassName) {
+  if (CheckButton.checked) {
+    SetDisplay(ClassName, "");
+    if (--NumUnchecked == 0) {
+      returnObjById("AllBugsCheck").checked = true;
+    }
+  }
+  else {
+    SetDisplay(ClassName, "none");
+    NumUnchecked++;
+    returnObjById("AllBugsCheck").checked = false;
+  }
+}
+</script>
+<!-- SUMMARYENDHEAD -->
+</head>
+<body>
+<h1>sudo-1.8.19 - scan-build results</h1>
+
+<table>
+<tr><th>User:</th><td>xfear@xfear</td></tr>
+<tr><th>Working Directory:</th><td>/home/xfear/Desktop/TFG/old-source-code/pacman-asp/sudo/sudo-1.8.19</td></tr>
+<tr><th>Command Line:</th><td>make</td></tr>
+<tr><th>Clang Version:</th><td>clang version 13.0.1
+</td></tr>
+<tr><th>Date:</th><td>Tue Jun 28 21:19:04 2022</td></tr>
+</table>
+<h2>Bug Summary</h2><table>
+<thead><tr><td>Bug Type</td><td>Quantity</td><td class="sorttable_nosort">Display?</td></tr></thead>
+<tr style="font-weight:bold"><td class="SUMM_DESC">All Bugs</td><td class="Q">61</td><td><center><input type="checkbox" id="AllBugsCheck" onClick="CopyCheckedStateToCheckButtons(this);" checked/></center></td></tr>
+<tr><th>API</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Argument with 'nonnull' attribute passed null</td><td class="Q">4</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_api_argument_with_nonnull_attribute_passed_null');" checked/></center></td></tr>
+<tr><th>Logic error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dereference of null pointer</td><td class="Q">38</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_dereference_of_null_pointer');" checked/></center></td></tr>
+<tr><td class="SUMM_DESC">Result of operation is garbage or undefined</td><td class="Q">3</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_logic_error_result_of_operation_is_garbage_or_undefined');" checked/></center></td></tr>
+<tr><th>Memory error</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Memory leak</td><td class="Q">6</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_memory_error_memory_leak');" checked/></center></td></tr>
+<tr><th>Unused code</th><th colspan=2></th></tr>
+<tr><td class="SUMM_DESC">Dead nested assignment</td><td class="Q">10</td><td><center><input type="checkbox" onClick="ToggleDisplay(this,'bt_unused_code_dead_nested_assignment');" checked/></center></td></tr>
+</table>
+<h2>Reports</h2>
+
+<table class="sortable" style="table-layout:automatic">
+<thead><tr>
+  <td>Bug Group</td>
+  <td class="sorttable_sorted">Bug Type<span id="sorttable_sortfwdind">&nbsp;&#x25BE;</span></td>
+  <td>File</td>
+  <td>Function/Method</td>
+  <td class="Q">Line</td>
+  <td class="Q">Path Length</td>
+  <td class="sorttable_nosort"></td>
+  <!-- REPORTBUGCOL -->
+</tr></thead>
+<tbody>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>auth/sudo_auth.c</td><td class="DESC">verify_user</td><td class="Q">299</td><td class="Q">32</td><td><a href="report-636ed2.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-636ed2.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>gram.c</td><td class="DESC">new_digest</td><td class="Q">781</td><td class="Q">33</td><td><a href="report-a0564f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a0564f.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>auth/sudo_auth.c</td><td class="DESC">verify_user</td><td class="Q">299</td><td class="Q">32</td><td><a href="report-bb3a4e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bb3a4e.html" -->
+</tr>
+<tr class="bt_api_argument_with_nonnull_attribute_passed_null"><td class="DESC">API</td><td class="DESC">Argument with 'nonnull' attribute passed null</td><td>gram.c</td><td class="DESC">new_digest</td><td class="Q">781</td><td class="Q">33</td><td><a href="report-ea89c5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ea89c5.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil.c</td><td class="DESC">sudo_set_gidlist</td><td class="Q">918</td><td class="Q">1</td><td><a href="report-02377f.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-02377f.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>logging.c</td><td class="DESC">send_mail</td><td class="Q">602</td><td class="Q">1</td><td><a href="report-2ff3c3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2ff3c3.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>logging.c</td><td class="DESC">send_mail</td><td class="Q">602</td><td class="Q">1</td><td><a href="report-34b9bb.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-34b9bb.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil.c</td><td class="DESC">sudo_set_gidlist</td><td class="Q">918</td><td class="Q">1</td><td><a href="report-393fb9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-393fb9.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil.c</td><td class="DESC">sudo_set_grlist</td><td class="Q">816</td><td class="Q">1</td><td><a href="report-3b9084.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3b9084.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil_impl.c</td><td class="DESC">sudo_make_pwitem</td><td class="Q">96</td><td class="Q">1</td><td><a href="report-557cc7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-557cc7.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil_impl.c</td><td class="DESC">sudo_make_pwitem</td><td class="Q">96</td><td class="Q">1</td><td><a href="report-66d358.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-66d358.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil.c</td><td class="DESC">sudo_set_grlist</td><td class="Q">816</td><td class="Q">1</td><td><a href="report-906278.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-906278.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil_impl.c</td><td class="DESC">sudo_make_pwitem</td><td class="Q">96</td><td class="Q">1</td><td><a href="report-912797.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-912797.html" -->
+</tr>
+<tr class="bt_unused_code_dead_nested_assignment"><td class="DESC">Unused code</td><td class="DESC">Dead nested assignment</td><td>pwutil_impl.c</td><td class="DESC">sudo_make_pwitem</td><td class="Q">96</td><td class="Q">1</td><td><a href="report-c5ea60.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c5ea60.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">add_userspec</td><td class="Q">852</td><td class="Q">36</td><td><a href="report-021317.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-021317.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1391</td><td class="Q">30</td><td><a href="report-0b21e3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0b21e3.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2057</td><td class="Q">30</td><td><a href="report-0b6623.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0b6623.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1931</td><td class="Q">29</td><td><a href="report-0fb7e9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0fb7e9.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1949</td><td class="Q">29</td><td><a href="report-1666cc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1666cc.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1601</td><td class="Q">30</td><td><a href="report-178ea8.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-178ea8.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1533</td><td class="Q">35</td><td><a href="report-190205.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-190205.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1384</td><td class="Q">30</td><td><a href="report-222896.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-222896.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1384</td><td class="Q">30</td><td><a href="report-223bb0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-223bb0.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1305</td><td class="Q">29</td><td><a href="report-2661df.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2661df.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2064</td><td class="Q">30</td><td><a href="report-2686b7.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2686b7.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2064</td><td class="Q">30</td><td><a href="report-3f8c03.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-3f8c03.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1949</td><td class="Q">29</td><td><a href="report-406426.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-406426.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1978</td><td class="Q">29</td><td><a href="report-4545f4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4545f4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1931</td><td class="Q">29</td><td><a href="report-46bbfd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-46bbfd.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1608</td><td class="Q">30</td><td><a href="report-48ee70.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-48ee70.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1986</td><td class="Q">30</td><td><a href="report-4a42b4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-4a42b4.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2057</td><td class="Q">30</td><td><a href="report-619d6b.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-619d6b.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1305</td><td class="Q">29</td><td><a href="report-61eb8d.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-61eb8d.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">add_userspec</td><td class="Q">852</td><td class="Q">36</td><td><a href="report-66c006.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-66c006.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1375</td><td class="Q">32</td><td><a href="report-681749.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-681749.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1533</td><td class="Q">35</td><td><a href="report-7d565e.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7d565e.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1391</td><td class="Q">30</td><td><a href="report-7fd3fd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-7fd3fd.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1362</td><td class="Q">29</td><td><a href="report-80a818.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-80a818.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1588</td><td class="Q">29</td><td><a href="report-880a09.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-880a09.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1449</td><td class="Q">31</td><td><a href="report-919f26.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-919f26.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1449</td><td class="Q">31</td><td><a href="report-96e717.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-96e717.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1978</td><td class="Q">29</td><td><a href="report-9d91b6.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-9d91b6.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1588</td><td class="Q">29</td><td><a href="report-b27ed3.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b27ed3.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1608</td><td class="Q">30</td><td><a href="report-b3e9af.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-b3e9af.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1362</td><td class="Q">29</td><td><a href="report-bfa238.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-bfa238.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2049</td><td class="Q">29</td><td><a href="report-c327a0.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-c327a0.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1986</td><td class="Q">30</td><td><a href="report-e0b7e5.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e0b7e5.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">2049</td><td class="Q">29</td><td><a href="report-e2a9d9.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-e2a9d9.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1601</td><td class="Q">30</td><td><a href="report-eee1fd.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-eee1fd.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1993</td><td class="Q">30</td><td><a href="report-f98d32.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-f98d32.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1375</td><td class="Q">32</td><td><a href="report-fbf882.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-fbf882.html" -->
+</tr>
+<tr class="bt_logic_error_dereference_of_null_pointer"><td class="DESC">Logic error</td><td class="DESC">Dereference of null pointer</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1993</td><td class="Q">30</td><td><a href="report-ffcdd4.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ffcdd4.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>defaults.c</td><td class="DESC">free_default</td><td class="Q">433</td><td class="Q">21</td><td><a href="report-0338bc.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-0338bc.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>defaults.c</td><td class="DESC">check_defaults</td><td class="Q">769</td><td class="Q">40</td><td><a href="report-1c8238.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1c8238.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>defaults.c</td><td class="DESC">free_default</td><td class="Q">433</td><td class="Q">21</td><td><a href="report-2d7f62.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-2d7f62.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>defaults.c</td><td class="DESC">check_defaults</td><td class="Q">769</td><td class="Q">40</td><td><a href="report-319f0c.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-319f0c.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1503</td><td class="Q">27</td><td><a href="report-5c6fea.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-5c6fea.html" -->
+</tr>
+<tr class="bt_memory_error_memory_leak"><td class="DESC">Memory error</td><td class="DESC">Memory leak</td><td>gram.c</td><td class="DESC">sudoersparse</td><td class="Q">1503</td><td class="Q">27</td><td><a href="report-ea7928.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-ea7928.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>getdate.c</td><td class="DESC">LookupWord</td><td class="Q">783</td><td class="Q">40</td><td><a href="report-1d2d47.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-1d2d47.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>getdate.c</td><td class="DESC">LookupWord</td><td class="Q">800</td><td class="Q">43</td><td><a href="report-a39e01.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-a39e01.html" -->
+</tr>
+<tr class="bt_logic_error_result_of_operation_is_garbage_or_undefined"><td class="DESC">Logic error</td><td class="DESC">Result of operation is garbage or undefined</td><td>getdate.c</td><td class="DESC">LookupWord</td><td class="Q">746</td><td class="Q">35</td><td><a href="report-cd3f50.html#EndPath">View Report</a></td>
+<!-- REPORTBUG id="report-cd3f50.html" -->
+</tr>
+</tbody>
+</table>
+
+</body></html>
